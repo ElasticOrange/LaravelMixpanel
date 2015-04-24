@@ -1,0 +1,21 @@
+{
+    "name": "hydrarulz/laravel-mixpanel",
+    "description": "Budle mixpanel for Laravel 5",
+    "authors": [
+        {
+            "name": "Daniel Luca",
+            "email": "lucadanielcostin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*",
+        "mixpanel/mixpanel-php": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Hydrarulz\\LaravelMixpanel": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
