@@ -1,6 +1,6 @@
 {
     "name": "hydrarulz/laravel-mixpanel",
-    "description": "Budle mixpanel for Laravel 5",
+    "description": "Bundle mixpanel for Laravel 5",
     "authors": [
         {
             "name": "Daniel Luca",
