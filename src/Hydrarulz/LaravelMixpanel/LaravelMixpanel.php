@@ -27,18 +27,22 @@ class LaravelMixpanel extends Mixpanel {
      */
     public static function getInstance($token = false, $options = array())
     {
-        if (!$token) {
+        if (!$token)
+        {
             $token = Config::get('laravel-mixpanel.token');
         }
-        if (!isset(self::$_instance)) {
+
+        /**
+         * Init the library and use the generated cookie by the Javascript to identify the user.
+         */
+        if (!isset(self::$_instance))
+        {
             self::$_instance = new LaravelMixpanel($token, $options);
+
+            $mixpanel_cookie = json_decode($_COOKIE['mp_'. $token .'_mixpanel']);
+            self::$_instance->identify($mixpanel_cookie->distinct_id);
         }
         return self::$_instance;
-    }
-
-    public function hello()
-    {
-        echo "Hello world";
     }
 
     /**
@@ -57,4 +61,3 @@ class LaravelMixpanel extends Mixpanel {
         $this->token = $token;
     }
 }
-
