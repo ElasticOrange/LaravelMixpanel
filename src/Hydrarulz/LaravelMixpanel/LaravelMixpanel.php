@@ -20,6 +20,17 @@ class LaravelMixpanel extends Mixpanel {
         self::$_instance = parent::__construct($this->token, $options = array());
     }
 
+    private static function getUniqueId()
+    {
+        if (isset($_COOKIE['mp_'. self::getToken() .'_mixpanel']))
+        {
+            $mixpanel_cookie = json_decode($_COOKIE['mp_'. $token .'_mixpanel']);
+            return $mixpanel_cookie->distinct_id;
+        }
+
+        return false;
+    }
+
     /**
      * @param bool  $token
      * @param array $options
@@ -39,8 +50,10 @@ class LaravelMixpanel extends Mixpanel {
         {
             self::$_instance = new LaravelMixpanel($token, $options);
 
-            $mixpanel_cookie = json_decode($_COOKIE['mp_'. $token .'_mixpanel']);
-            self::$_instance->identify($mixpanel_cookie->distinct_id);
+            if (self::getUniqueId())
+            {
+                self::$_instance->identify(self::getUniqueId());
+            }
         }
         return self::$_instance;
     }
