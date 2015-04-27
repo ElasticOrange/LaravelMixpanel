@@ -53,7 +53,6 @@ class LaravelMixpanel extends Mixpanel {
             if (isset($_COOKIE['mp_'. $token .'_mixpanel']))
             {
                 $mixpanel_cookie = json_decode($_COOKIE['mp_'. $token .'_mixpanel']);
-                return $mixpanel_cookie->distinct_id;
                 self::$_instance->identify($mixpanel_cookie->distinct_id);
             }
         }
