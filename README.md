@@ -3,14 +3,21 @@ laravel-mixpanel
 
 Install it with
 
-> composer require "hydrarulz/laravel-mixpanel:dev-master"
+```
+composer require "hydrarulz/laravel-mixpanel:dev-master"
+```
 
 Add the service provider at the end of the `providers` array in file `config/app.php`:
 
-> 'Hydrarulz\LaravelMixpanel\LaravelMixpanelServiceProvider',
+```php
+'Hydrarulz\LaravelMixpanel\LaravelMixpanelServiceProvider',
+```
 
 The service provider will register an interface, but you should also register the alias at the end of the `aliases` array:
-> 'LaravelMixpanel' => 'Hydrarulz\LaravelMixpanel\Facades\LaravelMixpanel',
+
+```php
+'LaravelMixpanel' => 'Hydrarulz\LaravelMixpanel\Facades\LaravelMixpanel',
+```
 
 Then the you should publish the config file with
 `php artisan vendor:publish`
