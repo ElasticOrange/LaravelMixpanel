@@ -1,6 +1,10 @@
 laravel-mixpanel
 ================
 
+Install it with
+
+> composer require "hydrarulz/laravel-mixpanel:dev-master"
+
 Add the service provider at the end of the `providers` array in file `config/app.php`:
 
 > 'Hydrarulz\LaravelMixpanel\LaravelMixpanelServiceProvider',
