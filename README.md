@@ -20,35 +20,20 @@ This creates your config file `/config/laravel-mixpanel.php` that looks like thi
 
 Replace with your Mixpanel token.
 
------------
-
-In the config package the regex `'userAgent' => '^Mozilla((?!bot).)*$'` skips all bot.
-
------------
-
-Now, to use this package, there is 2 solutions :
-- You can use 'LaravelMixpanel::', ie. `LaravelMixpanel::track('Homepage View', ['connected' => false])`
-
-But with this solution, mixpanel people is unavailable. Then, I created `getInstance()`.
-
-- The second solution is to use `$mixpanel = LaravelMixpanel::getInstance();`
-
-For example :
+After this you can start using it in your application
 
 ```php
-<?php
 $mixpanel = LaravelMixpanel::getInstance();
-// identifie l'user
-$mixpanel->identify($user->mixpanel_id);
-// track l'event
-$mixpanel->track("Upgraded account");
-
-// MAJ de l'user dans la BDD de mixpanel
-$mixpanel->people->set($user->mixpanel_id, array(
-    '$name'       => $user->name,
-    '$phone'      => $user->tel,
-    '$address'    => $user->address,
-    '$lat'        => $user->lat,
-    '$lng'        => $user->lng,
-));
+$mixpanel->people->set(
+    $user->mixpanel_id
+    , [
+        'name' => 'Daniel Luca'
+    ]
+);
+$mixpanel->track(
+	'Event'
+    , [
+        'Type' => 'Click'
+    ]
+);
 ```
