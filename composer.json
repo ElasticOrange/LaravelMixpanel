@@ -19,5 +19,5 @@
             "Hydrarulz\\LaravelMixpanel": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
