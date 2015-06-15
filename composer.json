@@ -1,7 +1,7 @@
 {
     "name": "hydrarulz/laravel-mixpanel",
     "description": "Bundle mixpanel for Laravel 5",
-    "keywords": ["laravel", "laravel5", "mixpanel"],
+    "keywords": ["laravel", "laravel5", "mixpanel", "analytics"],
     "license": "MIT",
     "authors": [
         {
